@@ -14,7 +14,18 @@ public class Student {
         this.studentClass = studentClass;
     }
 
-    
+    //Getters e Setters
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
 
-
+    public char getStudentClass() {
+        return studentClass;
+    }
+    public void setStudentClass(char studentClass) {
+        this.studentClass = studentClass;
+    }
 }
