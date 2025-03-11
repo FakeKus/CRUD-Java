@@ -1,5 +1,7 @@
 package com.example;
 
+import com.example.controller.RegisterController;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -13,16 +15,16 @@ public class App extends Application {
 
         try {
 
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("view/MainView.fxml"));
-            //LoginViewController loginViewController = new LoginViewController();
-            //loader.setController(loginViewController);
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/view/Register.fxml"));
+            RegisterController registerController = new RegisterController();
+            loader.setController(registerController);
             Parent root = loader.load();
             Scene scene = new Scene(root);
             
             primaryStage.setScene(scene);
             primaryStage.setResizable(false);
-            primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("/com/alexandre/icons/MainLogo.png")));
-            primaryStage.setTitle("Home");
+            primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("/com/example/icons/MainLogo.png")));
+            primaryStage.setTitle("CRUD - Java");
             primaryStage.show();
         } catch(Exception e) {
 
