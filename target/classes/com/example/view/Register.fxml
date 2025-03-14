@@ -17,7 +17,7 @@
    <children>
       <AnchorPane fx:id="anchorLogo" maxHeight="150.0" maxWidth="400.0" minHeight="150.0" minWidth="400.0" prefHeight="150.0" prefWidth="400.0">
          <children>
-            <ImageView fx:id="iconBack" fitHeight="30.0" fitWidth="30.0" onMouseReleased="#iconBackEvent" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" />
+            <ImageView fx:id="iconBack" fitHeight="30.0" fitWidth="30.0" onMouseReleased="#iconBackEvent" pickOnBounds="true" preserveRatio="true" visible="false" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" />
             <ImageView fx:id="imgLogo" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="150.0" AnchorPane.topAnchor="25.0" />
          </children>
       </AnchorPane>
@@ -25,7 +25,7 @@
          <children>
             <AnchorPane fx:id="anchorList" maxHeight="375.0" maxWidth="400.0" minHeight="375.0" minWidth="400.0" prefHeight="375.0" prefWidth="400.0">
                <children>
-                  <ListView fx:id="listData" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="0.0" />
+                  <ListView fx:id="listData" focusTraversable="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="0.0" />
                </children>
             </AnchorPane>
             <AnchorPane fx:id="anchorRegister" maxHeight="375.0" maxWidth="400.0" minHeight="375.0" minWidth="400.0" prefHeight="375.0" prefWidth="400.0" styleClass="anchorData" visible="false">

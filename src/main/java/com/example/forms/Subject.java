@@ -11,13 +11,51 @@ public class Subject {
 
     //Construtor vazio
     public Subject() {}
-    //Construtor
-    public Subject(String name, int cpf, int rg, char gender, String birthDate) {
-        this.name = name;
-        this.cpf = cpf;
-        this.rg = rg;
-        this.gender = gender;
-        this.birthDate = birthDate;
+    
+    //Construtor privado para o builder
+    private Subject(Builder builder) {
+        this.name = builder.name;
+        this.cpf = builder.cpf;
+        this.rg = builder.rg;
+        this.gender = builder.gender;
+        this.birthDate = builder.birthDate;
+    }
+    // Builder estático
+    public static class Builder {
+        private String name;
+        private int cpf;
+        private int rg;
+        private char gender;
+        private String birthDate;
+
+        public Builder setName(String name) {
+            this.name = name;
+            return this;
+        }
+
+        public Builder setCpf(int cpf) {
+            this.cpf = cpf;
+            return this;
+        }
+
+        public Builder setRg(int rg) {
+            this.rg = rg;
+            return this;
+        }
+
+        public Builder setGender(char gender) {
+            this.gender = gender;
+            return this;
+        }
+
+        public Builder setBirthDate(String birthDate) {
+            this.birthDate = birthDate;
+            return this;
+        }
+
+        public Subject build() {
+            return new Subject(this);
+        }
     }
 
     //Getters e Setters
