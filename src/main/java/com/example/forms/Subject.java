@@ -1,13 +1,15 @@
 package com.example.forms;
 
+import java.sql.Date;
+
 public class Subject {
 
     //Iniciando variáveis
     private String name;
-    private int cpf;
+    private Long cpf;
     private int rg;
     private char gender;
-    private String birthDate;
+    private Date birthDate;
 
     //Construtor vazio
     public Subject() {}
@@ -23,17 +25,17 @@ public class Subject {
     // Builder estático
     public static class Builder {
         private String name;
-        private int cpf;
+        private Long cpf;
         private int rg;
         private char gender;
-        private String birthDate;
+        private Date birthDate;
 
         public Builder setName(String name) {
             this.name = name;
             return this;
         }
 
-        public Builder setCpf(int cpf) {
+        public Builder setCpf(Long cpf) {
             this.cpf = cpf;
             return this;
         }
@@ -48,7 +50,7 @@ public class Subject {
             return this;
         }
 
-        public Builder setBirthDate(String birthDate) {
+        public Builder setBirthDate(Date birthDate) {
             this.birthDate = birthDate;
             return this;
         }
@@ -66,10 +68,10 @@ public class Subject {
         this.name = name;
     }
 
-    public int getCpf() {
+    public Long getCpf() {
         return cpf;
     }
-    public void setCpf(int cpf) {
+    public void setCpf(Long cpf) {
         this.cpf = cpf;
     }
 
@@ -87,10 +89,10 @@ public class Subject {
         this.gender = gender;
     }
 
-    public String getBirthDate() {
+    public Date getBirthDate() {
         return birthDate;
     }
-    public void setBirthDate(String birthDate) {
+    public void setBirthDate(Date birthDate) {
         this.birthDate = birthDate;
     }
 }

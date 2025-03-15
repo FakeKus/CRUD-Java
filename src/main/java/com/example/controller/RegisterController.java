@@ -143,6 +143,7 @@ public class RegisterController {
         assert textName != null : "fx:id=\"textName\" was not injected: check your FXML file 'Register.fxml'.";
         assert textRG != null : "fx:id=\"textRG\" was not injected: check your FXML file 'Register.fxml'.";
 
+        //Carregando as imagens
         imgLogo.setImage(new Image(getClass()
             .getResourceAsStream("/com/example/icons/MainLogo.png")));
         iconBack.setImage(new Image(getClass()

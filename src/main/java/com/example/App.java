@@ -15,17 +15,22 @@ public class App extends Application {
 
         try {
 
+            //Carregando o arquivo FXML
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/view/Register.fxml"));
+            //Instanciando e setando o Controller do FXML
             RegisterController registerController = new RegisterController();
             loader.setController(registerController);
+            //Criando a cena
             Parent root = loader.load();
             Scene scene = new Scene(root);
             
-            primaryStage.setScene(scene);
-            primaryStage.setResizable(false);
-            primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("/com/example/icons/MainLogo.png")));
-            primaryStage.setTitle("CRUD - Java");
-            primaryStage.show();
+            //Carregando e definindo algumas configs da cena
+            primaryStage.setScene(scene);                                         //Definindo a cena
+            primaryStage.setResizable(false);                               //Definindo a janela como não redimensionável
+            primaryStage.getIcons().add(new Image(getClass()
+                .getResourceAsStream("/com/example/icons/MainLogo.png")));   //Definindo o Icone da janela
+            primaryStage.setTitle("CRUD - Java");                           //Definindo o titulo da janela
+            primaryStage.show();                                                  //Mostrando a janela
         } catch(Exception e) {
 
             System.out.println("Erro - 01");  //TO - DO
