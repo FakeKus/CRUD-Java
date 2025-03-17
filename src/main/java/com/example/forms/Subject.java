@@ -2,6 +2,8 @@ package com.example.forms;
 
 import java.sql.Date;
 
+import javafx.beans.property.SimpleStringProperty;
+
 public class Subject {
 
     //Iniciando variáveis
@@ -64,12 +66,20 @@ public class Subject {
     public String getName() {
         return name;
     }
+    public SimpleStringProperty getNameSimple() {
+        SimpleStringProperty simpleStringProperty = new SimpleStringProperty(name);
+        return simpleStringProperty;
+    }
     public void setName(String name) {
         this.name = name;
     }
 
     public Long getCpf() {
         return cpf;
+    }
+    public SimpleStringProperty getCpfSimple() {
+        SimpleStringProperty simpleStringProperty = new SimpleStringProperty(String.valueOf(cpf));
+        return simpleStringProperty;
     }
     public void setCpf(Long cpf) {
         this.cpf = cpf;
