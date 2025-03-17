@@ -114,6 +114,7 @@ public class RegisterController {
 
     @FXML
     void btnAddEvent(ActionEvent event) {
+        // Configura a interface para adicionar um novo registro
         btnDel.setVisible(false);
         btnEdit.setVisible(false);
         btnAdd.setVisible(false);
@@ -124,6 +125,7 @@ public class RegisterController {
 
         editing = false;
 
+        // Limpa os campos de entrada
         textName.setText("");
         textCPF.setText("");
         textRG.setText("");
@@ -135,6 +137,7 @@ public class RegisterController {
 
     @FXML
     void btnDelEvent(ActionEvent event) {
+        // Exibe um diálogo de confirmação antes de excluir um registro
         Alert dialogoExe = new Alert(Alert.AlertType.CONFIRMATION);
         ButtonType btnSim = new ButtonType("Sim");
         ButtonType btnNao = new ButtonType("Não");
@@ -145,6 +148,7 @@ public class RegisterController {
         dialogoExe.getButtonTypes().setAll(btnSim, btnNao);
         dialogoExe.showAndWait().ifPresent(choice -> {
             if (choice == btnSim) {
+                // Exclui o registro do banco de dados
                 new SubjectDAO().deleteData(subject.getCpf());
                 listSubjects = new SubjectDAO().getData();
                 subjects.clear();
@@ -161,6 +165,7 @@ public class RegisterController {
 
     @FXML
     void btnEditEvent(ActionEvent event) {
+        // Configura a interface para editar um registro existente
         btnDel.setVisible(false);
         btnEdit.setVisible(false);
         btnAdd.setVisible(false);
@@ -172,10 +177,15 @@ public class RegisterController {
 
         editing = true;
 
+        // Preenche os campos de entrada com os dados do registro selecionado
         textName.setText(subject.getName());
         textCPF.setText(String.valueOf(subject.getCpf()));
         textRG.setText(String.valueOf(subject.getRg()));
-        if (subject.getGender() == 'M') {choiceGender.setValue("Masculino");} else {choiceGender.setValue("Feminino");}
+        if (subject.getGender() == 'M') {
+            choiceGender.setValue("Masculino");
+        } else {
+            choiceGender.setValue("Feminino");
+        }
         Date date = subject.getBirthDate();
         int day = date.toLocalDate().getDayOfMonth();
         String month = String.valueOf(date.toLocalDate().getMonth());
@@ -195,7 +205,7 @@ public class RegisterController {
             case "MAY":
                 month = "Maio";
                 break;
-            case "JUNE": 
+            case "JUNE":
                 month = "Junho";
                 break;
             case "JULY":
@@ -228,6 +238,7 @@ public class RegisterController {
     @FXML
     void btnSaveEvent(ActionEvent event) {
         if (editing) {
+            // Valida os campos antes de salvar as alterações
             if (textName.getText().equals("") || textCPF.getText().equals("") || textRG.getText().equals("")) {
                 Alert dialogoInfo = new Alert(Alert.AlertType.INFORMATION);
                 dialogoInfo.setTitle("ATENÇÃO");
@@ -248,6 +259,7 @@ public class RegisterController {
                 dialogoExe.getButtonTypes().setAll(btnSim, btnNao);
                 dialogoExe.showAndWait().ifPresent(choice -> {
                     if (choice == btnSim) {
+                        // Atualiza o registro no banco de dados
                         Subject subject = new Subject.Builder()
                             .setName(textName.getText())
                             .setCpf(Long.parseLong(textCPF.getText()))
@@ -267,6 +279,7 @@ public class RegisterController {
                 });
             }
         } else {
+            // Valida os campos antes de salvar um novo registro
             if (textName.getText().equals("") || textCPF.getText().equals("") || textRG.getText().equals("")) {
                 Alert dialogoInfo = new Alert(Alert.AlertType.INFORMATION);
                 dialogoInfo.setTitle("ATENÇÃO");
@@ -290,6 +303,7 @@ public class RegisterController {
                     dialogoExe.getButtonTypes().setAll(btnSim, btnNao);
                     dialogoExe.showAndWait().ifPresent(choice -> {
                         if (choice == btnSim) {
+                            // Insere um novo registro no banco de dados
                             Subject subject = new Subject.Builder()
                                 .setName(textName.getText())
                                 .setCpf(Long.parseLong(textCPF.getText()))
@@ -314,6 +328,7 @@ public class RegisterController {
 
     @FXML
     void iconBackEvent(MouseEvent event) {
+        // Volta para a tela de listagem
         btnDel.setVisible(true);
         btnEdit.setVisible(true);
         btnAdd.setVisible(true);
@@ -325,8 +340,8 @@ public class RegisterController {
 
     @FXML
     void tableDataEvent(MouseEvent event) {
+        // Seleciona um registro na tabela
         if (tableData.getSelectionModel().getSelectedItem() != null) {
-            //System.out.println(tableData.getSelectionModel().getSelectedItem().getName());
             subject = tableData.getSelectionModel().getSelectedItem();
             btnDel.setDisable(false);
             btnEdit.setDisable(false);
@@ -339,16 +354,17 @@ public class RegisterController {
 
     @FXML
     void textRGEvent(KeyEvent event) {
-
+        // Evento de teclado para o campo RG (pode ser usado para validação em tempo real)
     }
 
     @FXML
     void textCPFEvent(KeyEvent event) {
-
+        // Evento de teclado para o campo CPF (pode ser usado para validação em tempo real)
     }
 
     @FXML
     void initialize() {
+        // Verifica se os componentes foram injetados corretamente
         assert anchorBtn != null : "fx:id=\"anchorBtn\" was not injected: check your FXML file 'Register.fxml'.";
         assert anchorList != null : "fx:id=\"anchorList\" was not injected: check your FXML file 'Register.fxml'.";
         assert anchorLogo != null : "fx:id=\"anchorLogo\" was not injected: check your FXML file 'Register.fxml'.";
@@ -372,7 +388,7 @@ public class RegisterController {
         assert textName != null : "fx:id=\"textName\" was not injected: check your FXML file 'Register.fxml'.";
         assert textRG != null : "fx:id=\"textRG\" was not injected: check your FXML file 'Register.fxml'.";
 
-        //Carregando as imagens
+        // Carrega as imagens dos ícones
         imgLogo.setImage(new Image(getClass()
             .getResourceAsStream("/com/example/icons/MainLogo.png")));
         iconBack.setImage(new Image(getClass()
@@ -386,7 +402,7 @@ public class RegisterController {
         iconSave.setImage(new Image(getClass()
             .getResourceAsStream("/com/example/icons/Save.png")));
 
-        //Iniciando a Tabela
+        // Inicializa a tabela com os dados dos sujeitos
         listSubjects = new SubjectDAO().getData();
         subjects = FXCollections.observableArrayList();
         subjects.addAll(listSubjects);
@@ -402,12 +418,16 @@ public class RegisterController {
         tableData.getColumns().add(columnCpf); 
         tableData.setItems(subjects);
 
-        //Iniciando os ChoiceBox
+        // Inicializa os ChoiceBox com os valores possíveis
         choiceGender.getItems().addAll("Masculino", "Feminino");
-        for (int day = 1; day <= 31; day = day + 1) {choiceDateDay.getItems().add(day);}
+        for (int day = 1; day <= 31; day = day + 1) {
+            choiceDateDay.getItems().add(day);
+        }
         choiceDateMonth.getItems().addAll("Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", 
             "Outubro", "Novembro", "Dezembro");
-        for (int year = (calendar.get(Calendar.YEAR) - 121); year <= calendar.get(Calendar.YEAR); year = year + 1) {choiceDateYear.getItems().add(year);}
+        for (int year = (calendar.get(Calendar.YEAR) - 121); year <= calendar.get(Calendar.YEAR); year = year + 1) {
+            choiceDateYear.getItems().add(year);
+        }
     }
 
 }
