@@ -34,7 +34,7 @@ Este projeto é um exemplo de aplicação CRUD (Create, Read, Update, Delete) em
 
 1. Clone o repositório:
     ```sh
-    git clone https://github.com/seu-usuario/CRUD-Java.git
+    git clone https://github.com/FakeKus/CRUD-Java.git
     ```
 
 2. Importe o projeto em sua IDE de preferência (Eclipse, IntelliJ, etc.).
