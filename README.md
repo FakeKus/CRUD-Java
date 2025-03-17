@@ -23,7 +23,7 @@ Este projeto é um exemplo de aplicação CRUD (Create, Read, Update, Delete) em
 ## TO-DOs
 
 - `src/main/java/com/example/styles/Register.css`
-- O arquivo de estilo (.CSS) foi editado apenas para uma melhor visualização na hora de codar;
+- O arquivo de estilo (.CSS) foi editado apenas para uma melhor visualização na hora de montar o FXML e codar;
 
 ## Requisitos
 

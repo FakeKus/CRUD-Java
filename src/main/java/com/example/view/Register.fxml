@@ -15,7 +15,7 @@
 
 <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" stylesheets="@../styles/Register.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <AnchorPane fx:id="anchorLogo" maxHeight="150.0" maxWidth="400.0" minHeight="150.0" minWidth="400.0" prefHeight="150.0" prefWidth="400.0">
+      <AnchorPane fx:id="anchorLogo" maxHeight="150.0" maxWidth="400.0" minHeight="150.0" minWidth="400.0" prefHeight="150.0" prefWidth="400.0" styleClass="anchorTop">
          <children>
             <ImageView fx:id="iconBack" fitHeight="30.0" fitWidth="30.0" onMouseReleased="#iconBackEvent" pickOnBounds="true" preserveRatio="true" visible="false" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" />
             <ImageView fx:id="imgLogo" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="150.0" AnchorPane.topAnchor="25.0" />

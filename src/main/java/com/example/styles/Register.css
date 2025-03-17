@@ -1,4 +1,8 @@
+.anchorTop {
+    -fx-background-color: #8B0000;
+}
 .anchorData {
+    -fx-background-color: #FFFFFF;
 }
 .anchorBtn {
     -fx-background-color: #000000;
