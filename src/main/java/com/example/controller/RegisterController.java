@@ -355,11 +355,29 @@ public class RegisterController {
     @FXML
     void textRGEvent(KeyEvent event) {
         // Evento de teclado para o campo RG (pode ser usado para validação em tempo real)
+        String text = textRG.getText().replace(" ", "")
+                                  .replace(".", "")
+                                  .replace(",", "")
+                                  .replace("/", "")
+                                  .replace("\\", "")
+                                  .replace("-", "")
+                                  .replace("_", "");
+        textRG.setText(text);
+        textRG.positionCaret(text.length());
     }
 
     @FXML
     void textCPFEvent(KeyEvent event) {
         // Evento de teclado para o campo CPF (pode ser usado para validação em tempo real)
+        String text = textCPF.getText().replace(" ", "")
+                                  .replace(".", "")
+                                  .replace(",", "")
+                                  .replace("/", "")
+                                  .replace("\\", "")
+                                  .replace("-", "")
+                                  .replace("_", "");
+        textCPF.setText(text);
+        textCPF.positionCaret(text.length());
     }
 
     @FXML
