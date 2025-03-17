@@ -39,13 +39,15 @@ Este projeto é um exemplo de aplicação CRUD (Create, Read, Update, Delete) em
 
 2. Importe o projeto em sua IDE de preferência (Eclipse, IntelliJ, etc.).
 
-3. Configure a conexão com o banco de dados no arquivo `ConnectionFactory.java` (Já vem configurado pra acesar uma tabela Local criada com SQLite):
+3. Configure a conexão com o banco de dados no arquivo `ConnectionFactory.java`:
     ```java
     // Exemplo de configuração para MySQL
     private static final String URL = "jdbc:mysql://localhost:3306/seu_banco_de_dados";
     private static final String USER = "seu_usuario";
     private static final String PASSWORD = "sua_senha";
     ```
+
+- `DB/crud.db`: Por padrão já vem configurado pra acesar uma tabela Local criada com SQLite:
 
 4. Execute a aplicação a partir da classe principal (Main.java).
 
